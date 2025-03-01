@@ -8,10 +8,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   const socialLinks = [
-    { icon: <Github className="h-5 w-5" />, href: "https://github.com/" },
-    { icon: <Linkedin className="h-5 w-5" />, href: "https://linkedin.com/" },
+    { icon: <Github className="h-5 w-5" />, href: "http://github.com/Hamza3087" },
+    { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/in/hamza-tariq-331523298/" },
     { icon: <Twitter className="h-5 w-5" />, href: "https://twitter.com/" },
-    { icon: <Instagram className="h-5 w-5" />, href: "https://instagram.com/" },
+    { icon: <Instagram className="h-5 w-5" />, href: "https://www.instagram.com/hamza__g0ndal/" },
   ]
 
   const footerLinks = [
@@ -23,12 +23,23 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-muted/50 border-t border-border/50">
-      <div className="container mx-auto px-4 py-12">
+    <footer className="relative border-t border-border/50 overflow-hidden">
+      {/* Background image with opacity */}
+      <div
+        className="absolute inset-0 z-0 opacity-15"
+        style={{
+          backgroundImage: "url('/images/ff.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+
+      {/* Content with higher z-index to appear above the background */}
+      <div className="container mx-auto px-4 py-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
             <Link href="/" className="text-2xl font-bold text-primary hover:text-primary/80 transition-colors">
-              Hamza<span className="text-purple-500">.dev</span>
+              Hamza's<span className="text-purple-500"> Portfolio</span>
             </Link>
             <p className="text-foreground/70 max-w-md">
               A passionate Full Stack Web Developer and Software Engineer with expertise in creating innovative digital

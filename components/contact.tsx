@@ -16,15 +16,14 @@ export default function Contact() {
     message: "",
   })
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any } }) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault()
     console.log("Form submitted:", formData)
-    // Here you would typically send the data to your backend
     alert("Message sent successfully!")
     setFormData({ name: "", email: "", subject: "", message: "" })
   }
@@ -38,12 +37,14 @@ export default function Contact() {
     {
       icon: <Phone className="h-10 w-10 text-purple-600" />,
       title: "Phone",
-      details: "+92 333 1234567",
+      details: "+92 318 5454416",
+      link: "https://wa.me/923185454416?text=Hello%2C%20I%20want%20to%20contact%20you",
     },
     {
       icon: <Mail className="h-10 w-10 text-purple-600" />,
       title: "Email",
-      details: "hamza.dev@example.com",
+      details: "hamzagondal921@gmail.com",
+      link: "mailto:hamzagondal921@gmail.com?subject=Inquiry&body=Hello,%20I%20would%20like%20to%20discuss...",
     },
   ]
 
@@ -70,98 +71,31 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="border border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-md transition-all duration-300">
-                <CardContent className="p-6 flex flex-col items-center text-center">
-                  <div className="mb-4 p-3 rounded-full bg-purple-100 dark:bg-purple-900/20">{info.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2">{info.title}</h3>
-                  <p className="text-foreground/70">{info.details}</p>
-                </CardContent>
-              </Card>
+              {info.link ? (
+                <a href={info.link} target="_blank" rel="noopener noreferrer">
+                  <Card className="border border-[#ceb2ce] bg-card/50 backdrop-blur-md hover:bg-[#F3E8FF] transition-all duration-300 cursor-pointer">
+                    <CardContent className="p-6 flex flex-col items-center text-center">
+                      <div className="mb-4 p-3 rounded-full bg-purple-100 dark:bg-purple-900/20">{info.icon}</div>
+                      <h3 className="text-xl font-semibold mb-2">{info.title}</h3>
+                      <p className="text-foreground/70">{info.details}</p>
+                    </CardContent>
+                  </Card>
+                </a>
+              ) : (
+                <Card className="border border-[#ceb2ce] bg-card/50 backdrop-blur-md hover:bg-[#F3E8FF] transition-all duration-300">
+                  <CardContent className="p-6 flex flex-col items-center text-center">
+                    <div className="mb-4 p-3 rounded-full bg-purple-100 dark:bg-purple-900/20">{info.icon}</div>
+                    <h3 className="text-xl font-semibold mb-2">{info.title}</h3>
+                    <p className="text-foreground/70">{info.details}</p>
+                  </CardContent>
+                </Card>
+              )}
             </motion.div>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <Card className="border border-border/50 bg-card/50 backdrop-blur-sm">
-            <CardContent className="p-6 md:p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium">
-                      Your Name
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="John Doe"
-                      required
-                      className="bg-background/50"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium">
-                      Your Email
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="john@example.com"
-                      required
-                      className="bg-background/50"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="subject" className="text-sm font-medium">
-                    Subject
-                  </label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    placeholder="How can I help you?"
-                    required
-                    className="bg-background/50"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Your message here..."
-                    rows={6}
-                    required
-                    className="bg-background/50"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full md:w-auto px-8 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-md transition-colors"
-                >
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-        </motion.div>
+        
       </div>
     </section>
   )
 }
-

@@ -78,7 +78,7 @@ export default function Skills() {
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 4, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
@@ -101,7 +101,7 @@ export default function Skills() {
         >
           {skillCategories.map((category, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <Card className="relative h-full border border-border/50 bg-card/50 backdrop-blur-md transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 hover:-translate-y-2 hover:border-purple-500 hover:ring-1 hover:ring-purple-400">
+              <Card className="relative h-full border border-purple-400 bg-card/50 backdrop-blur-md transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 hover:-translate-y-2 hover:bg-[#F3E8FF]">
                 <CardHeader>
                   <CardTitle className="text-xl text-foreground font-semibold tracking-wide transition-all duration-300 group-hover:text-purple-400">
                     {category.title}

@@ -95,10 +95,7 @@ export default function Projects() {
   return (
     <section id="projects" className="py-16 md:py-24 relative">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-0.0"
-        style={{ backgroundImage: "url('/images/3.svg')" }}
-      ></div>
+     
 
       <div className="relative container mx-auto px-4">
         <motion.div
