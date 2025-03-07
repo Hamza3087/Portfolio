@@ -8,7 +8,7 @@ export default function Skills() {
   const skillCategories = [
     {
       title: "Programming Languages",
-      skills: ["Python", "Java", "C++", "C#", "C", "GO"],
+      skills: ["Python", "Java", "C++", "C#", "C", "GO", "Assembly(x-86)"],
     },
     {
       title: "Web Development",
@@ -24,6 +24,8 @@ export default function Skills() {
         "MongoDB",
         "Node.js",
         "ASP.Net",
+        "Windows Form",
+        "Flutter"
       ],
     },
     {
@@ -42,7 +44,7 @@ export default function Skills() {
     },
     {
       title: "Artificial Intelligence",
-      skills: ["OpenCV", "Image Processing", "Machine Learning", "Deep Learning", "Data Preprocessing and Analysis"],
+      skills: ["OpenCV", "Image Processing", "YOLO Model", "Deep Learning", "Foundation Models"],
     },
     {
       title: "Version Control & Containerization",
