@@ -8,7 +8,7 @@ import ProfessionalSkills from "@/components/professional-skills"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import PageTransition from "@/components/page-transition"
-import Page from "@/components/page"
+import Page from "@/components/Page"
 
 export default function Home() {
   return (
