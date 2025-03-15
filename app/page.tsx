@@ -8,6 +8,7 @@ import ProfessionalSkills from "@/components/professional-skills"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import PageTransition from "@/components/page-transition"
+import Page from "@/components/page"
 
 export default function Home() {
   return (
@@ -21,7 +22,8 @@ export default function Home() {
         <Experience />
         <Services />
         <ProfessionalSkills />
-        <Contact />
+        <Page />
+        <Contact />-
       </main>
       <Footer />
     </div>

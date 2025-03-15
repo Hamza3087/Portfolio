@@ -32,7 +32,7 @@ export default function Experience() {
       company: "Software Productivity Strategies",
       period: "Sep 2024 - Oct 2024",
       description:
-        "Completed a 5-week internship as a Full Stack Web Developer.",
+        "Completed a 5-week internship in Cloud Department at SPS.",
     },
     {
       title: "Parallel And Distributed Computing TA",

@@ -7,6 +7,21 @@ import { ArrowRight, Download } from "lucide-react"
 import { TypeAnimation } from "react-type-animation"
 
 export default function Hero() {
+  const handleHireMe = () => {
+    const phoneNumber = "+923185454416";
+    const message = encodeURIComponent("Hello, I am interested in your services.");
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  };
+
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/Hamza_Tariq_CV.pdf"; // Ensure your CV file is placed in the "public" folder
+    link.download = "Hamza_Tariq_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="home" className="pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden bg-blue-100">
       <div className="container mx-auto px-4">
@@ -47,10 +62,10 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2">
-              <Button className="rounded-full px-6 bg-purple-600 hover:bg-purple-700">
+              <Button onClick={handleHireMe} className="rounded-full px-6 bg-purple-600 hover:bg-purple-700">
                 Hire Me <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button variant="outline" className="rounded-full px-6">
+              <Button onClick={handleDownloadCV} variant="outline" className="rounded-full px-6">
                 Download CV <Download className="ml-2 h-4 w-4" />
               </Button>
             </div>

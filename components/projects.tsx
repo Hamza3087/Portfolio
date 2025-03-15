@@ -40,7 +40,7 @@ export default function Projects() {
       id: 4,
       title: "AI Image Colorizer",
       description: "Built a Flask web app leveraging deep learning (ECCV16 & SIGGRAPH17) to automatically colorize grayscale images.",
-      image: "/placeholder.svg?height=300&width=500",
+      image: "/images/ai.png?height=300&width=500",
       category: "ai",
       technologies: ["ECCV16v", "SIGGRAPH17", "Torch Model Zoo", "PyTorch", "NumPy"],
     },
@@ -76,6 +76,15 @@ export default function Projects() {
       category: "app",
       technologies: ["HTML", "CSS", "JavaScript", "Python", "FastAPI", "Linear Regression", "NumPy"],
     },
+    {
+      id: 9,
+      title: "AI-Powered Attendance System",
+      description: "Developed an online attendance system where registered students can scan their faces to mark attendance with date and time verification.",
+      image: "/images/attendance.png?height=300&width=500",
+      category: "app",
+      technologies: ["MediaPipe", "MobileNet", "HTML", "CSS"],
+},
+
   ]
 
   const filteredProjects =
