@@ -34,8 +34,6 @@ coverage/
 .next/
 out/
 
-# Tailwind CSS
-tailwind.config.js
 
 # IDE settings
 .vscode/
