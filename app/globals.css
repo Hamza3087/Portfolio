@@ -53,9 +53,7 @@
   * {
     border-color: var(--border);
   }
-  body {
-    @apply bg-background text-foreground;
-  }
+  
 }
 
 @layer utilities {
