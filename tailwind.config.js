@@ -2,12 +2,11 @@
 module.exports = {
   darkMode: "class",  // ✅ Dark mode enabled with class-based toggling
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",  // ✅ Added TypeScript support
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.tsx",  // ✅ Additional content paths as requested
-    "./components/**/*.tsx",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",  // ✅ Includes the `app` directory
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",  // ✅ Includes the `components` directory
+    "./components/ui/**/*.{js,ts,jsx,tsx,mdx}", // ✅ Includes the `ui` subdirectory inside components
+    "./styles/**/*.{css,scss}", // ✅ Includes global styles if needed
+    "./public/**/*.{html,js}",  // ✅ Includes static files if used
   ],
   theme: {
     container: {
