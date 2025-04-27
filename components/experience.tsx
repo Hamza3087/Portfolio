@@ -11,42 +11,42 @@ export default function Experience() {
       company: "",
       period: "April 2024 - Present",
       description:
-        "Working as a freelance web developer managing websites for private clients.",
+        "Building responsive websites and web applications for clients using modern technologies like React, Next.js, and Tailwind CSS. Focusing on delivering high-quality, user-friendly solutions.",
     },
     {
       title: "Full Stack Developer",
       company: "Techxserve",
       period: "Sep 2024 - Oct 2024",
       description:
-        "Completed a 5-week internship as a Full Stack Web Developer.",
+        "Developed and maintained web applications using the MERN stack. Collaborated with the design team to implement responsive UI components and integrated RESTful APIs for seamless data flow.",
     },
     {
       title: "MERN Stack Developer Intern",
       company: "Bytewise Limited",
       period: "June 2024 - Aug 2024",
       description:
-        "Completed internship as a React Developer, working on modern web applications.",
+        "Built modern web applications using React, Node.js, and MongoDB. Implemented state management with Redux and created reusable UI components following best practices.",
     },
     {
-      title: "Cloud Intern ",
+      title: "Cloud Engineering Intern",
       company: "Software Productivity Strategies",
       period: "Sep 2024 - Oct 2024",
       description:
-        "Completed a 5-week internship in Cloud Department at SPS.",
+        "Gained hands-on experience with AWS services including EC2, S3, and Lambda. Assisted in deploying and monitoring cloud infrastructure and implemented CI/CD pipelines.",
     },
     {
       title: "Parallel And Distributed Computing TA",
       company: "FAST University",
       period: "Jan 2024 - June 2024",
       description:
-        "Played a key role as a lab demonstrator, specializing in MySQL database systems.",
+        "Assisted students with complex parallel computing concepts and algorithms. Conducted lab sessions, graded assignments, and provided one-on-one support to enhance student learning.",
     },
     {
       title: "Assembly Language Lab Demonstrator",
       company: "FAST University",
       period: "Jan 2024 - June 2024",
       description:
-        "Played a key role as a lab demonstrator, specializing in MySQL database systems.",
+        "Guided students through assembly language programming concepts and practices. Helped troubleshoot code issues and explained low-level computing principles to enhance understanding.",
     },
   ];
 
@@ -71,8 +71,8 @@ export default function Experience() {
     <section id="experience" className="relative py-16 md:py-24 bg-muted/30">
       {/* Background Image */}
       <div
-        className="absolute inset-0 -z-10 bg-center bg-no-repeat bg-cover opacity: 0.2"
-        style={{ backgroundImage: 'url("/images/exp.svg")' }}
+        className="absolute inset-0 -z-10 bg-center bg-no-repeat bg-cover"
+        style={{ backgroundImage: 'url("/images/exp.svg")', opacity: 0.3 }}
       ></div>
 
       <div className="container mx-auto px-4">
@@ -84,10 +84,10 @@ export default function Experience() {
           className="text-center mb-12"
         >
           <h2 className="text-lg font-medium text-purple-600 mb-2">
-            Professional Background
+            Professional Journey
           </h2>
           <h3 className="text-3xl md:text-4xl font-bold text-foreground">
-            Work Experience
+            My Experience & Expertise
           </h3>
         </motion.div>
 
@@ -100,20 +100,20 @@ export default function Experience() {
         >
           {experiences.map((exp, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <Card className="relative border border-purple-400 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:border-purple-500/50 hover:shadow-purple-500/30 group">
+              <Card className="relative border border-purple-400 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:border-purple-500/70 hover:shadow-purple-500/40 group">
                 {/* Glowing Background Effect */}
-                <div className="absolute inset-0 -z-10 bg-purple-500/10 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 -z-10 bg-purple-500/15 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                 <CardHeader className="pb-2 flex flex-col items-center">
-                  <CardTitle className="text-xl text-center text-foreground">
-                    {exp.title} {exp.company && `- ${exp.company}`}
+                  <CardTitle className="text-xl text-center text-foreground font-bold">
+                    {exp.title} {exp.company && <span className="text-purple-600">- {exp.company}</span>}
                   </CardTitle>
-                  <Badge className="bg-purple-600/20 text-purple-600 hover:bg-purple-600/30">
+                  <Badge className="bg-purple-600/30 text-purple-700 hover:bg-purple-600/40 font-medium">
                     {exp.period}
                   </Badge>
                 </CardHeader>
                 <CardContent className="text-center">
-                  <p className="text-foreground/70">{exp.description}</p>
+                  <p className="text-foreground/80">{exp.description}</p>
                 </CardContent>
               </Card>
             </motion.div>

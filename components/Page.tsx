@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Brain, Smile, MessageSquare, FileText, ChevronRight, Sparkles, Star } from 'lucide-react'
+import { Brain, Smile, MessageSquare, FileText, ChevronRight, Sparkles, Star, Search, Palette, DollarSign, Image } from 'lucide-react'
 
 // Custom animations
 const fadeIn = {
@@ -27,10 +27,48 @@ const scaleIn = {
 }
 
 const features = [
-  { icon: Brain, text: "Object Detection", description: "Identifies and classifies objects in real-time" },
-  { icon: Smile, text: "Sense Detection", description: "Analyzes environmental context and surroundings" },
-  { icon: MessageSquare, text: "Facial Emotion Detection", description: "Recognizes human emotions from facial expressions" },
-  { icon: FileText, text: "Text Recognition", description: "Extracts and processes text from images and surroundings" }
+  {
+    icon: Brain,
+    text: "Object Detection",
+    description: "Identifies and classifies objects in real-time",
+    technology: "YOLOv8"
+  },
+  {
+    icon: Image,
+    text: "Scene Description",
+    description: "Provides detailed descriptions of surroundings and environments",
+    technology: "Microsoft CLIP"
+  },
+  {
+    icon: Smile,
+    text: "Facial Emotion Detection",
+    description: "Recognizes human emotions from facial expressions",
+    technology: "Google Patch V16"
+  },
+  {
+    icon: FileText,
+    text: "Text Recognition",
+    description: "Extracts and processes text from images and surroundings",
+    technology: "Tesseract"
+  },
+  {
+    icon: Search,
+    text: "Item Locator",
+    description: "Helps find and locate specific items in the environment",
+    technology: "ORB, Flann, OpenCV"
+  },
+  {
+    icon: Palette,
+    text: "Color Detection",
+    description: "Identifies and describes colors of objects and surroundings",
+    technology: "Google ML Kit"
+  },
+  {
+    icon: DollarSign,
+    text: "Currency Detection",
+    description: "Recognizes and identifies different denominations of currency",
+    technology: "MobileVNet"
+  }
 ]
 
 const tools = [
@@ -46,7 +84,7 @@ const tools = [
 
 export default function FYPShowcase() {
   const [isLoaded, setIsLoaded] = useState(false)
-  
+
   useEffect(() => {
     setIsLoaded(true)
   }, [])
@@ -55,7 +93,7 @@ export default function FYPShowcase() {
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-purple-50 text-gray-800 py-12 px-4 md:px-6 overflow-hidden">
       <AnimatePresence>
         {isLoaded && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
@@ -71,8 +109,8 @@ export default function FYPShowcase() {
                   <Sparkles className="w-4 h-4 mr-1 inline-block" /> Showcase
                 </Badge>
               </motion.div>
-              
-              <motion.h1 
+
+              <motion.h1
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
@@ -85,7 +123,7 @@ export default function FYPShowcase() {
                   <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-full"></span>
                 </span>
               </motion.h1>
-              
+
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -106,8 +144,8 @@ export default function FYPShowcase() {
               >
                 <Card className="p-8 bg-white border-purple-100 shadow-lg shadow-purple-100/50 rounded-xl overflow-hidden group relative">
                   <div className="absolute -right-20 -top-20 w-40 h-40 bg-purple-100 rounded-full opacity-50 group-hover:scale-150 transition-all duration-700"></div>
-                  
-                  <motion.h2 
+
+                  <motion.h2
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.4 }}
@@ -118,18 +156,17 @@ export default function FYPShowcase() {
                     </span>
                     <span className="block text-gray-800 mt-1">Sense Beyond Limits</span>
                   </motion.h2>
-                  
-                  <motion.p 
+
+                  <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                     className="text-gray-600 mb-8 relative z-10"
                   >
-                    A comprehensive accessibility application designed to enhance
-                    the independence and quality of life for individuals with visual
-                    impairments. Utilizing advanced AI technologies including:
+                    An AI-powered mobile app enhancing independence for visually impaired users through
+                    real-time object detection, scene description, and practical tools for daily navigation.
                   </motion.p>
-                  
+
                   <div className="space-y-5 relative z-10">
                     {features.map((feature, index) => (
                       <motion.div
@@ -149,6 +186,11 @@ export default function FYPShowcase() {
                               {feature.text}
                             </h3>
                             <p className="text-gray-500 text-sm mt-1">{feature.description}</p>
+                            <div className="mt-2">
+                              <span className="inline-block bg-purple-100 text-purple-700 text-xs px-2 py-1 rounded-full">
+                                {feature.technology}
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </motion.div>
@@ -199,8 +241,8 @@ export default function FYPShowcase() {
                         OBJECTIVE
                       </h3>
                       <p className="text-gray-600 pl-11">
-                        Empowered-AI is a comprehensive accessibility application designed to enhance the
-                        independence and quality of life for individuals with visual impairments.
+                        Empowered-AI leverages cutting-edge technologies to create a voice-navigated assistant
+                        that helps visually impaired users perceive and interact with their environment safely and independently.
                       </p>
                     </motion.div>
 
@@ -214,10 +256,10 @@ export default function FYPShowcase() {
                         WORKFLOW
                       </h3>
                       <div className="relative overflow-hidden rounded-lg group">
-                        <img 
+                        <img
                           src={`/images/poster.png?height=200&width=400`}
                           alt="Project workflow diagram"
-                          className="w-full rounded-lg transition-transform duration-500 group-hover:scale-105"
+                          className="w-full rounded-lg transition-transform duration-500 group-hover:scale-105 py-4"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                           <div className="p-4 text-white text-sm">
@@ -236,7 +278,7 @@ export default function FYPShowcase() {
                     >
                       <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-shimmer"></div>
                       <Button className="w-full bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white shadow-md hover:shadow-lg transition-all duration-300 py-6 relative">
-                        <span className="mr-2">View Complete Project</span> 
+                        <span className="mr-2">View Complete Project</span>
                         <Star className="w-4 h-4 animate-pulse" />
                       </Button>
                     </motion.div>

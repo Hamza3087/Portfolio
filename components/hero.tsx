@@ -41,13 +41,15 @@ export default function Hero() {
                 <TypeAnimation
                   sequence={[
                     "Full Stack Developer",
-                    1000,
+                    1500,
                     "UI/UX Designer",
-                    1000,
-                    "Software Engineer",
-                    1000,
+                    1500,
+                    "AI/ML Developer",
+                    1500,
                     "Web Developer",
-                    1000,
+                    1500,
+                    "Software Engineer",
+                    1500,
                   ]}
                   wrapper="h2"
                   speed={50}
@@ -58,7 +60,7 @@ export default function Hero() {
             </div>
 
             <p className="text-foreground/70 text-base md:text-lg max-w-lg">
-              I am a skilled <b> Full Stack Web Developer</b> and <b>Software Engineer</b>, adept at building scalable applications and delivering innovative solutions by staying ahead of industry trends.
+              I am a skilled <b>Full Stack Web Developer</b>, <b>AI/ML Developer</b>, and <b>Software Engineer</b>, adept at building scalable applications and delivering innovative solutions by staying ahead of industry trends.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2">
@@ -81,7 +83,7 @@ export default function Hero() {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur opacity-75 animate-pulse"></div>
               <div className="relative bg-background rounded-full p-2">
                 <Image
-                  src="/images/hamza.jpg"
+                  src="/images/hamza.png"
                   alt="Hamza's Profile"
                   width={400}
                   height={300}

@@ -1,17 +1,23 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+
+// Define project type
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  technologies: string[];
+}
 
 export default function Projects() {
-  const [activeTab, setActiveTab] = useState("all")
-
-  const projects = [
+  const projects: Project[] = [
     {
       id: 1,
       title: "Bizzkonn",
@@ -58,7 +64,7 @@ export default function Projects() {
       description: "Built a web app with role-based dashboards to manage courses, grades, and student records.",
       image: "/images/lms.png?height=300&width=500",
       category: "app",
-      technologies: ["[.NET", "C#", "SQL", "Google Forms"],
+      technologies: [".NET", "C#", "SQL", "Google Forms"],
     },
     {
       id: 7,
@@ -66,7 +72,7 @@ export default function Projects() {
       description: "Built a web app with role-based dashboards to manage courses, grades, and student records.",
       image: "/images/linkedIn.png?height=300&width=500",
       category: "app",
-      technologies: ["Selenium", "Chrome WebDriver", " Unidecode", "Time Module", "CSV Module", "FastAPI"],
+      technologies: ["Selenium", "Chrome WebDriver", "Unidecode", "Time Module", "CSV Module", "FastAPI"],
     },
     {
       id: 8,
@@ -83,20 +89,8 @@ export default function Projects() {
       image: "/images/attendance.png?height=300&width=500",
       category: "app",
       technologies: ["MediaPipe", "MobileNet", "HTML", "CSS"],
-},
-
-  ]
-
-  const filteredProjects =
-    activeTab === "all"
-      ? projects
-      : projects.filter((project) => {
-          if (activeTab === "web") return project.category === "web"
-          if (activeTab === "app") return project.category === "app"
-          if (activeTab === "ai") return project.category === "ai"
-          if (activeTab === "other") return !["web", "app", "ai"].includes(project.category)
-          return true
-        })
+    }
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -106,7 +100,7 @@ export default function Projects() {
         staggerChildren: 0.1,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
@@ -115,12 +109,15 @@ export default function Projects() {
       opacity: 1,
       transition: { duration: 0.5 },
     },
-  }
+  };
 
   return (
-    <section id="projects" className="py-16 md:py-24 relative">
+    <section id="projects" className="py-16 md:py-24 relative overflow-hidden">
       {/* Background Image */}
-     
+      <div
+        className="absolute inset-0 -z-10 bg-center bg-no-repeat bg-cover"
+        style={{ backgroundImage: 'url("/images/1.svg")', opacity: 0.05 }}
+      ></div>
 
       <div className="relative container mx-auto px-4">
         <motion.div
@@ -132,46 +129,6 @@ export default function Projects() {
         >
           <h2 className="text-lg font-medium text-purple-600 mb-2">Creative Work</h2>
           <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-8">Check My Portfolio</h3>
-
-          <Tabs defaultValue="all" className="w-full max-w-2xl mx-auto">
-            <TabsList className="grid grid-cols-5 mb-8">
-              <TabsTrigger
-                value="all"
-                onClick={() => setActiveTab("all")}
-                className="data-[state=active]:bg-purple-600 data-[state=active]:text-white"
-              >
-                All
-              </TabsTrigger>
-              <TabsTrigger
-                value="web"
-                onClick={() => setActiveTab("web")}
-                className="data-[state=active]:bg-purple-600 data-[state=active]:text-white"
-              >
-                Websites
-              </TabsTrigger>
-              <TabsTrigger
-                value="app"
-                onClick={() => setActiveTab("app")}
-                className="data-[state=active]:bg-purple-600 data-[state=active]:text-white"
-              >
-                Web App
-              </TabsTrigger>
-              <TabsTrigger
-                value="ai"
-                onClick={() => setActiveTab("ai")}
-                className="data-[state=active]:bg-purple-600 data-[state=active]:text-white"
-              >
-                AI
-              </TabsTrigger>
-              <TabsTrigger
-                value="other"
-                onClick={() => setActiveTab("other")}
-                className="data-[state=active]:bg-purple-600 data-[state=active]:text-white"
-              >
-                Other
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
         </motion.div>
 
         <motion.div
@@ -181,10 +138,41 @@ export default function Projects() {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {filteredProjects.map((project) => (
+          {projects.map((project) => (
             <motion.div key={project.id} variants={itemVariants}>
-              <Card className="overflow-hidden border border-border/50 bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 group">
+              <Card className={`
+                overflow-hidden
+                border
+                ${project.category === 'web' ? 'border-blue-400/30 hover:border-blue-500/50 hover:shadow-blue-500/20' : ''}
+                ${project.category === 'app' ? 'border-green-400/30 hover:border-green-500/50 hover:shadow-green-500/20' : ''}
+                ${project.category === 'ai' ? 'border-purple-400/30 hover:border-purple-500/50 hover:shadow-purple-500/20' : ''}
+                ${!['web', 'app', 'ai'].includes(project.category) ? 'border-orange-400/30 hover:border-orange-500/50 hover:shadow-orange-500/20' : ''}
+                bg-card/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 group
+              `}>
                 <div className="relative overflow-hidden">
+                  {/* Category Badge */}
+                  <div className="absolute top-3 right-3 z-10">
+                    <Badge
+                      className={`
+                        ${project.category === 'web' ? 'bg-blue-500/80' : ''}
+                        ${project.category === 'app' ? 'bg-green-500/80' : ''}
+                        ${project.category === 'ai' ? 'bg-purple-600/80' : ''}
+                        ${!['web', 'app', 'ai'].includes(project.category) ? 'bg-orange-500/80' : ''}
+                        text-white font-medium px-3 py-1 backdrop-blur-sm
+                      `}
+                    >
+                      {project.title === 'InSightScraper' || project.title === 'PropValueAI' || project.title === 'AI-Powered Attendance System'
+                        ? 'Web App + ML'
+                        : project.category === 'web'
+                          ? 'Website'
+                          : project.category === 'app'
+                            ? 'Web App'
+                            : project.category === 'ai'
+                              ? 'AI Project'
+                              : 'Other'}
+                    </Badge>
+                  </div>
+
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
@@ -209,7 +197,7 @@ export default function Projects() {
                   <p className="text-foreground/70 text-sm mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, index) => (
-                      <Badge key={index} variant="outline" className="bg-muted/50">
+                      <Badge key={index} variant="outline" className="bg-muted/50 hover:bg-muted/70 transition-colors">
                         {tech}
                       </Badge>
                     ))}
@@ -221,5 +209,5 @@ export default function Projects() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

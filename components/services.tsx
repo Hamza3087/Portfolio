@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Code, Smartphone, Globe } from "lucide-react";
+import { Code, Smartphone, Brain } from "lucide-react";
 
 export default function Services() {
   const services = [
@@ -20,10 +20,10 @@ export default function Services() {
       icon: <Smartphone className="h-10 w-10 text-purple-600" />,
     },
     {
-      title: "WordPress Development",
+      title: "AI/ML Development",
       description:
-        "Custom WordPress themes and plugins development for content management systems.",
-      icon: <Globe className="h-10 w-10 text-purple-600" />,
+        "Building machine learning models and AI solutions using PyTorch, TensorFlow, and NLP techniques for real-world applications.",
+      icon: <Brain className="h-10 w-10 text-purple-600" />,
     },
   ];
 

@@ -53,7 +53,7 @@
   * {
     border-color: var(--border);
   }
-  
+
 }
 
 @layer utilities {
@@ -93,10 +93,10 @@ html {
   100% { background-position: 200% 0; }
 }
 .animate-shimmer {
-  background: linear-gradient(90deg, 
-    rgba(255,255,255,0) 0%, 
-    rgba(255,255,255,0.2) 25%, 
-    rgba(255,255,255,0.2) 50%, 
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.2) 25%,
+    rgba(255,255,255,0.2) 50%,
     rgba(255,255,255,0) 100%);
   background-size: 200% 100%;
   animation: shimmer 3s infinite;
@@ -150,8 +150,31 @@ html {
 
 /* 3D Text Effect */
 .text-3d {
-  text-shadow: 
+  text-shadow:
     0px 1px 0px rgba(255,255,255,0.5),
     0px 2px 0px rgba(0,0,0,0.1),
     0px 3px 0px rgba(0,0,0,0.05);
 }
+
+/* Flip Card Styles */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.hover\:rotate-y-180:hover {
+  transform: rotateY(180deg);
+}
+
+
