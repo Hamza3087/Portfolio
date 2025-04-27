@@ -88,6 +88,15 @@ html {
 }
 .animate-float { animation: float 3s ease-in-out infinite; }
 
+@keyframes slide-horizontal {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-15px); }
+  50% { transform: translateX(0); }
+  75% { transform: translateX(15px); }
+  100% { transform: translateX(0); }
+}
+.animate-slide-horizontal { animation: slide-horizontal 6s ease-in-out infinite; }
+
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }

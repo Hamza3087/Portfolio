@@ -79,14 +79,13 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="md:w-1/2 flex justify-center"
           >
-            <div className="relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur opacity-75 animate-pulse"></div>
-              <div className="relative bg-background rounded-full p-2">
+            <div className="relative w-[500px] h-[500px] overflow-hidden -mt-20">
+              <div className="relative rounded-full animate-slide-horizontal">
                 <Image
                   src="/images/hamza.png"
                   alt="Hamza's Profile"
-                  width={400}
-                  height={300}
+                  width={500}
+                  height={500}
                   className="rounded-full object-cover"
                   priority
                 />
