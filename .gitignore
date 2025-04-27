@@ -26,8 +26,6 @@ coverage/
 *.lcov
 
 # Environment variables
-.env
-.env.local
 .env.*.local
 
 # Next.js
@@ -48,3 +46,4 @@ out/
 *.tmp
 *.old
 Thumbs.db
+config.bat
